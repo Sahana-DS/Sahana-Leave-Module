@@ -725,7 +725,7 @@
     </div>
 
     <script>
-        const BASE_URL = 'http://51.20.252.164:3001'; // Change this if backend runs on a different port
+        const BASE_URL = 'http://51.20.252.164:3000'; // Change this if backend runs on a different port
 
         async function getLeaveRequests() {
             const controller = new AbortController();
@@ -1004,7 +1004,7 @@
             document.getElementById('successModal').style.display = 'block';
             setTimeout(() => {
                 closeModal('successModal');
-            }, 3001);
+            }, 3000);
         }
 
         function filterRecords() {
