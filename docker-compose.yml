@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  employee-leave:
+    build:
+      context: ./Employee-leave
+    ports:
+      - "6032:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  hr-leave:
+    build:
+      context: ./HR-leave
+    ports:
+      - "6033:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./Backend
+    ports:
+      - "3024:3024"
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin234
+      POSTGRES_DB: leave_management
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:13
+    ports:
+      - "5102:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin234
+      POSTGRES_DB: leave_management
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+
