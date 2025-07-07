@@ -25,7 +25,7 @@ services:
     build:
       context: ./Backend
     ports:
-      - "3061:3024"
+      - "3110:3024"
     depends_on:
       - postgres
     environment:
