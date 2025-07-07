@@ -5,7 +5,7 @@ services:
     build:
       context: ./Employee-leave
     ports:
-      - "6032:80"
+      - "7031:80"
     depends_on:
       - backend
     networks:
@@ -15,7 +15,7 @@ services:
     build:
       context: ./HR-leave
     ports:
-      - "6033:80"
+      - "7032:80"
     depends_on:
       - backend
     networks:
@@ -25,7 +25,7 @@ services:
     build:
       context: ./Backend
     ports:
-      - "3024:3024"
+      - "3061:3024"
     depends_on:
       - postgres
     environment:
